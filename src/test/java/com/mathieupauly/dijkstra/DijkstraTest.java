@@ -7,6 +7,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DijkstraTest {
     @Test
     public void canary() {
-        assertThat(0).isEqualTo(1);
+        assertThat(1).isEqualTo(1);
     }
 }
