@@ -14,7 +14,7 @@ class VertexTable {
         index = new TreeMap<>();
     }
 
-    void register(String name) {
+    void registerNode(String name) {
         final int vertex = nameTable.size();
         nameTable.put(name, vertex);
         index.put(vertex, name);

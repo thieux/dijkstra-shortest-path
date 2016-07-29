@@ -17,29 +17,31 @@ public class DijkstraTest {
     public void setup() {
         vertexTable = new VertexTable();
 
-        vertexTable.register("A");
-        vertexTable.register("B");
-        vertexTable.register("C");
-        vertexTable.register("D");
-        vertexTable.register("E");
-        vertexTable.register("F");
-        vertexTable.register("G");
-        vertexTable.register("H");
-        vertexTable.register("I");
-        vertexTable.register("J");
+        vertexTable.registerNode("A");
+        vertexTable.registerNode("B");
+        vertexTable.registerNode("C");
+        vertexTable.registerNode("D");
+        vertexTable.registerNode("E");
+        vertexTable.registerNode("F");
+        vertexTable.registerNode("G");
+        vertexTable.registerNode("H");
+        vertexTable.registerNode("I");
+        vertexTable.registerNode("J");
 
-        graph = new Graph(vertexTable.size());
+        final NamedGraph namedGraph = new NamedGraph(vertexTable);
 
-        graph.insertEdge(vertexTable.numberedEdge(new NamedEdge("A", "B")));
-        graph.insertEdge(vertexTable.numberedEdge(new NamedEdge("A", "C")));
-        graph.insertEdge(vertexTable.numberedEdge(new NamedEdge("A", "E")));
-        graph.insertEdge(vertexTable.numberedEdge(new NamedEdge("B", "F")));
-        graph.insertEdge(vertexTable.numberedEdge(new NamedEdge("C", "G")));
-        graph.insertEdge(vertexTable.numberedEdge(new NamedEdge("C", "H")));
-        graph.insertEdge(vertexTable.numberedEdge(new NamedEdge("D", "H")));
-        graph.insertEdge(vertexTable.numberedEdge(new NamedEdge("E", "J")));
-        graph.insertEdge(vertexTable.numberedEdge(new NamedEdge("F", "I")));
-        graph.insertEdge(vertexTable.numberedEdge(new NamedEdge("H", "J")));
+        namedGraph.insertEdge(new NamedEdge("A", "B"));
+        namedGraph.insertEdge(new NamedEdge("A", "C"));
+        namedGraph.insertEdge(new NamedEdge("A", "E"));
+        namedGraph.insertEdge(new NamedEdge("B", "F"));
+        namedGraph.insertEdge(new NamedEdge("C", "G"));
+        namedGraph.insertEdge(new NamedEdge("C", "H"));
+        namedGraph.insertEdge(new NamedEdge("D", "H"));
+        namedGraph.insertEdge(new NamedEdge("E", "J"));
+        namedGraph.insertEdge(new NamedEdge("F", "I"));
+        namedGraph.insertEdge(new NamedEdge("H", "J"));
+
+        graph = namedGraph.buildGraph();
     }
 
     @Test
