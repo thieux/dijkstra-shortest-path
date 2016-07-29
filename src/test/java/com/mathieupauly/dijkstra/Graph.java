@@ -3,16 +3,16 @@ package com.mathieupauly.dijkstra;
 import java.util.ArrayList;
 import java.util.List;
 
-class Graph {
+public class Graph {
     final int vertices;
     private final boolean[][] adjacencies;
 
-    Graph(int vertices) {
+    public Graph(int vertices) {
         this.vertices = vertices;
         adjacencies = new boolean[vertices][vertices];
     }
 
-    void insertEdge(Edge e) {
+    public void insertEdge(Edge e) {
         int e1 = e.v1;
         int e2 = e.v2;
 

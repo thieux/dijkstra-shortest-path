@@ -1,22 +1,24 @@
-package com.mathieupauly.dijkstra;
+package com.mathieupauly.dijkstra.network;
+
+import com.mathieupauly.dijkstra.Graph;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class NamedGraph {
+public class Network {
     private final List<NamedEdge> edges;
     private final VertexTable vertexTable;
 
-    NamedGraph(VertexTable vertexTable) {
+    public Network(VertexTable vertexTable) {
         this.vertexTable = vertexTable;
         this.edges = new ArrayList<>();
     }
 
-    void insertEdge(NamedEdge e) {
+    public void insertEdge(NamedEdge e) {
         edges.add(e);
     }
 
-    Graph buildGraph() {
+    public Graph buildGraph() {
         final Graph graph = new Graph(edges.size());
 
         for (NamedEdge namedEdge : edges) {

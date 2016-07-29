@@ -1,5 +1,8 @@
 package com.mathieupauly.dijkstra;
 
+import com.mathieupauly.dijkstra.network.NamedEdge;
+import com.mathieupauly.dijkstra.network.Network;
+import com.mathieupauly.dijkstra.network.VertexTable;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,7 +31,7 @@ public class DijkstraTest {
         vertexTable.registerNode("I");
         vertexTable.registerNode("J");
 
-        final NamedGraph namedGraph = new NamedGraph(vertexTable);
+        final Network namedGraph = new Network(vertexTable);
 
         namedGraph.insertEdge(new NamedEdge("A", "B"));
         namedGraph.insertEdge(new NamedEdge("A", "C"));

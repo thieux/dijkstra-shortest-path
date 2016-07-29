@@ -1,38 +1,36 @@
-package com.mathieupauly.dijkstra;
+package com.mathieupauly.dijkstra.network;
+
+import com.mathieupauly.dijkstra.Edge;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-class VertexTable {
+public class VertexTable {
 
     private Map<String, Integer> nameTable;
     private Map<Integer, String> index;
 
-    VertexTable() {
+    public VertexTable() {
         nameTable = new HashMap<>();
         index = new TreeMap<>();
     }
 
-    void registerNode(String name) {
+    public void registerNode(String name) {
         final int vertex = nameTable.size();
         nameTable.put(name, vertex);
         index.put(vertex, name);
     }
 
-    int size() {
-        return nameTable.size();
+    public int get(String name) {
+        return nameTable.get(name);
+    }
+
+    public String getNumber(int vertex) {
+        return index.get(vertex);
     }
 
     Edge numberedEdge(NamedEdge e) {
         return new Edge(nameTable.get(e.v1), nameTable.get(e.v2));
-    }
-
-    int get(String name) {
-        return nameTable.get(name);
-    }
-
-    String getNumber(int vertex) {
-        return index.get(vertex);
     }
 }
