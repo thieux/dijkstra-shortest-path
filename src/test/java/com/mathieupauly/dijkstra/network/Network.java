@@ -6,23 +6,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Network {
-    private final List<NamedEdge> edges;
-    private final VertexTable vertexTable;
+    private final List<Link> links;
+    private final HostTable hostTable;
 
-    public Network(VertexTable vertexTable) {
-        this.vertexTable = vertexTable;
-        this.edges = new ArrayList<>();
+    public Network(HostTable hostTable) {
+        this.links = new ArrayList<>();
+        this.hostTable = hostTable;
     }
 
-    public void insertEdge(NamedEdge e) {
-        edges.add(e);
+    public void insertLink(Link link) {
+        links.add(link);
     }
 
     public Graph buildGraph() {
-        final Graph graph = new Graph(edges.size());
+        final Graph graph = new Graph(links.size());
 
-        for (NamedEdge namedEdge : edges) {
-            graph.insertEdge(vertexTable.numberedEdge(namedEdge));
+        for (Link link : links) {
+            graph.insertEdge(hostTable.edge(link));
         }
 
         return graph;

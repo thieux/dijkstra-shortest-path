@@ -13,17 +13,17 @@ public class Graph {
     }
 
     public void insertEdge(Edge e) {
-        int e1 = e.v1;
-        int e2 = e.v2;
+        int vertex1 = e.vertex1;
+        int vertex2 = e.vertex2;
 
-        adjacencies[e1][e2] = true;
-        adjacencies[e2][e1] = true;
+        adjacencies[vertex1][vertex2] = true;
+        adjacencies[vertex2][vertex1] = true;
     }
 
-    List<Integer> neighbours(int start) {
+    List<Integer> adjacencies(int center) {
         List<Integer> neighbours = new ArrayList<>();
         for (int v = 0; v < adjacencies.length; v++) {
-            if (adjacencies[start][v]) {
+            if (adjacencies[center][v]) {
                 neighbours.add(v);
             }
         }
