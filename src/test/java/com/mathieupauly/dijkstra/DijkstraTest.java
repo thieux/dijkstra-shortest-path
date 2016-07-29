@@ -83,6 +83,18 @@ public class DijkstraTest {
         assertThat(namedPath).containsExactly("A", "E", "J");
     }
 
+    @Test
+    public void path_a_a() {
+        int startVertex = hostTable.vertexFor("A");
+        int targetVertex = hostTable.vertexFor("A");
+
+        final List<Integer> path = findShortestPath(graph, startVertex, targetVertex);
+
+        final List<String> namedPath = path.stream().map(hostTable::hostFor).collect(Collectors.toList());
+
+        assertThat(namedPath).containsExactly("A");
+    }
+
     private List<Integer> findShortestPath(Graph graph, int startVertex, int target) {
         int size = graph.vertices;
         int distances[] = new int[size];
